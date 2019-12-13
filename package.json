@@ -1,0 +1,27 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "authentication test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k4iru/authentication.git"
+  },
+  "author": "Kyle Cheung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k4iru/authentication/issues"
+  },
+  "homepage": "https://github.com/k4iru/authentication#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
