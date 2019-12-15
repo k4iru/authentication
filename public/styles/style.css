@@ -1,0 +1,34 @@
+:root {
+  --main-bg-color: rgba(34,131,161);
+}
+
+html, body {
+  height: 100vh;
+  display: grid;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 500px;
+  height: 600px;
+  border: 1px solid red;
+  margin: auto;
+}
+
+.login-form {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-style {
+  text-align: center;
+}
+
+.button {
+  width: 200px;
+  margin: auto;
+  margin-top: 40px;
+}
