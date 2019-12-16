@@ -5,4 +5,4 @@ router.post('/register', (req, res) => {
   res.send('Register');
 });
 
-module.expors = router;
+module.exports = router;
