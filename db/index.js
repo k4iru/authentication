@@ -11,7 +11,10 @@ module.exports = {
 
 // CREATE TABLE users (
 //   id SERIAL,
-//   user_name varchar(50) NOT NULL UNIQUE PRIMARY KEY,
-//   password varchar(2048) NOT NULL,
+//   user_name VARCHAR(50) NOT NULL UNIQUE PRIMARY KEY,
+//   password VARCHAR(2048) NOT NULL,
+//   salt VARCHAR(1024) NOT NULL,
+//   first_name VARCHAR(50) NOT NULL,
+//   last_name VARCHAR(50) NOT NULL,
 //   email varchar(100) NOT NULL UNIQUE
 //   );
