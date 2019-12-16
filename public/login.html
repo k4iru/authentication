@@ -16,8 +16,13 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container">
-      <a href='./login.html'><button class="button">Login</button></a>
-      <a href='./register.html'><button class="button">Register</button></a>
+      <form class="login-form" autocomplete='off'>
+        <p class="text-style">username</p>
+        <input type="text" name="username" required>
+        <p class="text-style">password</p>
+        <input type="password" name="password" required>
+        <button class="button" type="submit">login</button>
+      </form>
     </div>
     
     <script src="scripts/script.js" async defer></script>

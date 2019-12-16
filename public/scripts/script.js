@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import bcrypt from 'bcrypt';
+
 const form = document.querySelector('form');
 form.addEventListener('submit', handleLogin);
 
