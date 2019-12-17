@@ -3,7 +3,8 @@
 const dotenv = require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const authRoute = require('./routes/auth');
+const registerRoute = require('./routes/registerAuth');
+const loginRoute = require('./routes/loginAuth');
 const db = require('./db');
 
 const PORT = process.env.PORT || 3000;
@@ -21,9 +22,12 @@ const insertQuery = 'INSERT INTO users(user_name, password, email) VALUES ($1, $
 //   }
 // });
 
-app.use('/api/user', authRoute);
+// serve static files
 app.use('/', express.static(path.join(__dirname, '/public')));
 
+// api routes
+app.use('/api/user', registerRoute);
+app.use('/api/user', loginRoute);
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
