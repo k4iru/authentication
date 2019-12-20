@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config();
 const { Pool } = require('pg');
-console.log(process.env.DB_URL);
+
 const pool = new Pool({
   connectionString: process.env.DB_URL,
 });
@@ -19,5 +19,3 @@ module.exports = {
 //   last_name VARCHAR(50) NOT NULL,
 //   email varchar(100) NOT NULL UNIQUE
 //   );
-
-

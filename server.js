@@ -11,13 +11,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
-const insertQuery = 'INSERT INTO users(id, user_name, password, salt, first_name, last_name, email) VALUES (gen_random_uuid(),$1, $2, $3, $4, $5, $6)';
+const insertQuery = 'INSERT INTO users(id, user_name, password, first_name, last_name, email) VALUES (gen_random_uuid(),$1, $2, $3, $4, $5)';
 
 // CREATE TABLE users (
 //   id UUID,
 //   user_name VARCHAR(50) NOT NULL UNIQUE PRIMARY KEY,
 //   password VARCHAR(2048) NOT NULL,
-//   salt VARCHAR(1024) NOT NULL,
 //   first_name VARCHAR(50) NOT NULL,
 //   last_name VARCHAR(50) NOT NULL,
 //   email varchar(100) NOT NULL UNIQUE

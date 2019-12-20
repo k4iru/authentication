@@ -18,7 +18,7 @@ async function handleRegister(event) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username: obj.username.value,
+      userName: obj.username.value,
       password: obj.password.value,
       email: obj.email.value,
       firstName: obj.firstName.value,
