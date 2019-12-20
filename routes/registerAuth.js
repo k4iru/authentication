@@ -1,33 +1,26 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const db = require('../db');
+
 const saltRounds = 10;
 
-router.post('/register', async (req, res) => {
-  const exists = await checkIfUserExists(req.body.userName, req.body.email);
-  if (!exists) {
-    // create new user
-    console.log('user does not exist creating new user');
-    let userId = await createUser(req.body);
-    console.log(`user id ${userId}`);
-    res.send(JSON.stringify({
-      id: userId,
-    }));
-  }
-
-  //res.send('Register');
-});
-
-async function checkIfUserExists(userName, email) {
+async function checkIfUserNameExists(userName) {
   // check if username or email exists in the database already
-  const query = 'SELECT 1 FROM users where user_name=$1 OR email=$2 LIMIT 1;';
-  const result = await db.query(query, [userName, email]);
+  const query = 'SELECT 1 FROM users WHERE user_name=$1 LIMIT 1;';
+  const result = await db.query(query, [userName]);
   if (result.rowCount > 0) {
-    console.log('user exists');
-    console.log(result);
     return true;
   }
-  console.log('user does not exist');
+  return false;
+}
+
+async function checkIfEmailExists(email) {
+  // check if username or email exists in the database already
+  const query = 'SELECT 1 FROM users WHERE email=$1 LIMIT 1;';
+  const result = await db.query(query, [email]);
+  if (result.rowCount > 0) {
+    return true;
+  }
   return false;
 }
 
@@ -45,5 +38,34 @@ async function createUser(user) {
   console.log(`inside createUser, id is ${result.rows[0].id}`);
   return result.rows[0].id;
 }
+
+router.post('/register', async (req, res) => {
+  const userName = await checkIfUserNameExists(req.body.userName);
+  const email = await checkIfEmailExists(req.body.email);
+
+  if (userName) {
+    res.status(500).send(JSON.stringify({
+      error: 1,
+    }));
+    console.log('username exists');
+    return;
+  }
+
+  if (email) {
+    res.status(500).send(JSON.stringify({
+      error: 2,
+    }));
+    console.log('email exists');
+    return;
+  }
+
+  // create new user
+  console.log('user does not exist creating new user');
+  const userId = await createUser(req.body);
+  console.log(`user id ${userId}`);
+  res.send(JSON.stringify({
+    id: userId,
+  }));
+});
 
 module.exports = router;

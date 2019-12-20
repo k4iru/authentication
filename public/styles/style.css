@@ -32,3 +32,13 @@ html, body {
   margin: auto;
   margin-top: 40px;
 }
+
+.bad {
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
+}
