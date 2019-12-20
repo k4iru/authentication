@@ -11,7 +11,7 @@ async function handleRegister(event) {
     console.log('passwords dont match');
     return;
   }
-
+  console.log(obj.username.value);
   const response = await fetch('/api/user/register', {
     method: 'POST',
     headers: {
@@ -25,4 +25,9 @@ async function handleRegister(event) {
       lastName: obj.lastName.value,
     }),
   });
+
+  if (response.status === 500) {
+    // bad response
+    console.log('server error');
+  }
 }

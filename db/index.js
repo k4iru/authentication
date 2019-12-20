@@ -10,7 +10,8 @@ module.exports = {
 };
 
 // CREATE TABLE users (
-//   id SERIAL,
+// generate new uuids with new gen_random_uuid()
+//   id UUID,
 //   user_name VARCHAR(50) NOT NULL UNIQUE PRIMARY KEY,
 //   password VARCHAR(2048) NOT NULL,
 //   salt VARCHAR(1024) NOT NULL,
@@ -18,3 +19,5 @@ module.exports = {
 //   last_name VARCHAR(50) NOT NULL,
 //   email varchar(100) NOT NULL UNIQUE
 //   );
+
+
