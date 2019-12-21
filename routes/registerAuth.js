@@ -35,7 +35,6 @@ async function createUser(user) {
   const result = await db.query(insertQuery, [user.userName, hash, user.firstName, user.lastName, user.email]);
 
   // return user id
-  console.log(`inside createUser, id is ${result.rows[0].id}`);
   return result.rows[0].id;
 }
 
@@ -47,7 +46,6 @@ router.post('/register', async (req, res) => {
     res.status(500).send(JSON.stringify({
       error: 1,
     }));
-    console.log('username exists');
     return;
   }
 
@@ -55,17 +53,15 @@ router.post('/register', async (req, res) => {
     res.status(500).send(JSON.stringify({
       error: 2,
     }));
-    console.log('email exists');
     return;
   }
 
   // create new user
-  console.log('user does not exist creating new user');
   const userId = await createUser(req.body);
-  console.log(`user id ${userId}`);
-  res.send(JSON.stringify({
-    id: userId,
-  }));
+  res.redirect('/');
+  // res.send(JSON.stringify({
+  //   id: userId,
+  // }));
 });
 
 module.exports = router;

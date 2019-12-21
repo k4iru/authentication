@@ -60,6 +60,11 @@ async function handleRegister(event) {
     }),
   });
 
+  // redirects if successfully created
+  if (response.redirected) {
+    window.location.href = response.url;
+  }
+
   if (response.status === 500) {
     const { error } = await response.json();
     console.log(error);
