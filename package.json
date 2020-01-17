@@ -19,10 +19,14 @@
   "homepage": "https://github.com/k4iru/authentication#readme",
   "dependencies": {
     "bcrypt": "^3.0.7",
+    "connect-redis": "^4.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "path": "^0.12.7",
-    "pg": "^7.14.0"
+    "pg": "^7.14.0",
+    "redis": "^2.8.0",
+    "redis-server": "^1.2.2"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
