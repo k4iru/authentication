@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/k4iru/authentication#readme",
   "dependencies": {
+    "acorn": "^7.1.1",
     "bcrypt": "^3.0.7",
     "connect-redis": "^4.0.3",
     "dotenv": "^8.2.0",
